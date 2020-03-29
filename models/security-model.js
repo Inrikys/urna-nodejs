@@ -8,6 +8,7 @@ const securityModel = new schema({
     email: { type: String, required: true },
     password: { type: String, required: true },
     cpf: { type: String, required: true },
+    alreadyVoted: { type: Number, default: 0},
     createdAt: { type: Date, default: Date.now }
 }, { versionKey: false });
 

@@ -17,7 +17,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
 // Conexão com o banco de dados
-mongoose.connect(variables.Database.connection);
+mongoose.connect(variables.Database.connection, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false});
 
 // Configurando as rotas
 app.use('/urna/election', electionRouter);
@@ -25,3 +25,5 @@ app.use('/urna/security', securityRouter);
 
 
 module.exports = app;
+
+// API -> MIDDLEWARE -> ROUTES -> CONTROLLER -> REPOSITORY -> DB

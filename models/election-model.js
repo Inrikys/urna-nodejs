@@ -7,7 +7,7 @@ const electionModel = new schema({
     name: { trim: true, index: true, required: true, type: String },
     party: { trim: true, type: String, required: true },
     number: { trim: true, type: Number},
-    votes: { type: Number },
+    votes: { type: Number, default: 0 },
     comment: { type: String },
     image: { type: String },
     createdAt: { type: Date, default: Date.now }
