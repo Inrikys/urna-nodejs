@@ -1,45 +1,41 @@
 'use strict'
-require('../models/election-model');
 
-const mongoose = require('mongoose');
-const election = mongoose.model('Election');
+const repository = require('../repositories/election-repository');
 
 function electionController() {
 
 }
 
 electionController.prototype.get = async (req, res) => {
-    let response = await election.find();
+    let response = await new repository().getAll()
     res.status(200).send(response);
 }
 
 
 electionController.prototype.getById = async (req, res) => {
-    let response = await election.findById(req.params.id);
+    let response = await new repository().getById(req.params.id);
 
     res.status(200).send(response);
 }
 
 
 electionController.prototype.post = async (req, res) => {
-    let model = election(req.body);
-    let response = await model.save();
-
+    let response = await new repository().create(req.body);
     res.status(201).send(response);
 }
 
 
 electionController.prototype.put = async (req, res) => {
-    let response = await election.findByIdAndUpdate(req.params.id, { $set: req.body });
+    let response = await new repository().update(req.params.id, req.body);
 
     res.status(202).send(response);
 }
 
 
 electionController.prototype.delete = async (req, res) => {
-    let response = await election.findByIdAndDelete(req.params.id);
+    let response = await new repository().delete(req.params.id);
 
-    res.status(204).send('Eleitor deletado');
+    res.status(204).send(response);
 }
 
 
