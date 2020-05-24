@@ -15,7 +15,7 @@ exports.post = async (repository, validationContract, req, res) => {
 
     } catch (error) {
         console.log('Post com error: ' + error);
-        res.status(500), send({
+        res.status(500).send({
             message: 'Erro no processamento',
             error: error
         })
@@ -41,7 +41,7 @@ exports.put = async (repository, validationContract, req, res) => {
 
     } catch (error) {
         console.log('Put com error: ' + error);
-        res.status(500), send({
+        res.status(500).send({
             message: 'Erro no processamento',
             error: error
         })
@@ -56,7 +56,7 @@ exports.get = async (repository, req, res) => {
 
     } catch (error) {
         console.log('Get com error: ' + error);
-        res.status(500), send({
+        res.status(500).send({
             message: 'Erro no processamento',
             error: error
         })
@@ -78,7 +78,7 @@ exports.getById = async (repository, req, res) => {
 
     } catch (error) {
         console.log('getById com error: ' + error);
-        res.status(500), send({
+        res.status(500).send({
             message: 'Erro no processamento',
             error: error
         })
@@ -99,7 +99,7 @@ exports.delete = async (repository, req, res) => {
 
     } catch (error) {
         console.log('Delete com error: ' + error);
-        res.status(500), send({
+        res.status(500).send({
             message: 'Erro no processamento',
             error: error
         })
